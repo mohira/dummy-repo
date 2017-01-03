@@ -19,6 +19,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'carrierwave'
 
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
