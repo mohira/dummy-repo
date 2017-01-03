@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  enum sex: { 男性: 1, 女性: 0 }
+  enum sex: { male: 1, female: 0 }
 
   mount_uploader :image, ProfileImageUploader
 
