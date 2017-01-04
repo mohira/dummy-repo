@@ -7,12 +7,19 @@
       <div class="user-box">
         <h2><%= user.name %>さん</h2>
         <div class="user-profile">
-          <% profile = user.user_profile %>
-          年齢: <%= profile.age %>歳
-          身長: <%= profile.height %>cm
-          体重: <%= profile.height %>kg
-          性別: <%= user.sex %>
+          <% if profile = user.user_profile %>
+            年齢: <%= profile.age %>歳
+            身長: <%= profile.height %>cm
+            体重: <%= profile.height %>kg
+            性別: <%= user.sex %>
           <hr><hr><hr><hr><hr><hr>
+          <% else %>
+            年齢: 未登録
+            身長: 未登録
+            体重: 未登録
+            性別: 未登録
+          <hr><hr><hr><hr><hr><hr>
+          <% end %>
         </div>
       </div>
     </div>
