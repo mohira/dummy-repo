@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2><%= @user.name %>さん</h2>
+
+<%= image_tag @user.image %>
+
+<% profile = @user.user_profile %>
+年齢: <%= profile.age %>歳
+身長: <%= profile.height %>cm
+体重: <%= profile.height %>kg
+性別: <%= @user.sex %>
+
+<hr>
+
+<%= link_to '気になる', "#", class: "btn btn-default" %>
+<%= link_to '会いたい', "#", class: "btn btn-default" %>
