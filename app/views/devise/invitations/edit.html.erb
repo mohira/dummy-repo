@@ -4,6 +4,21 @@
   <%= devise_error_messages! %>
   <%= f.hidden_field :invitation_token %>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.select :sex, User.sexes.keys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+
   <% if f.object.class.require_password_on_accepting %>
   <p><%= f.label :password %><br />
   <%= f.password_field :password %></p>
