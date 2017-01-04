@@ -1,4 +1,17 @@
 Rails.application.configure do
+
+
+
+
+
+
+config.action_mailer.default_url_options = { host: 'localhost:3000' } #action_mailerのdefault urlをlocalに設定
+config.action_mailer.delivery_method = :letter_opener #localhostでも招待状の内容を見れるようにする
+
+
+
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

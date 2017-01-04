@@ -22,6 +22,8 @@ gem 'carrierwave'
 
 gem 'bootstrap-sass'
 
+gem 'letter_opener'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
