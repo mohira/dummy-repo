@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104145127) do
+ActiveRecord::Schema.define(version: 20170104160631) do
 
   create_table "user_profiles", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170104145127) do
     t.integer  "weight",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "sex"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170104145127) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "image"
-    t.integer  "sex"
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"

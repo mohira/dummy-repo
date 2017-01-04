@@ -6,15 +6,15 @@ hoge_user = User.create(
   email: 'hoge@hoge.com',
   password: '99999999',
   name: "hoge",
-  image: open("#{Rails.root}/test/fixtures/files/sample.png"),
-  sex: 1
+  image: open("#{Rails.root}/test/fixtures/files/sample.png")
 )
 
 UserProfile.create(
   user_id: hoge_user.id,
   age:    25,
   height: 180,
-  weight: 80
+  weight: 80,
+  sex: 1
 )
 
 images = ['female.png', 'male.png']
@@ -28,14 +28,14 @@ images = ['female.png', 'male.png']
     password: 'password',
     name: "user#{i}",
     image: open("#{Rails.root}/test/fixtures/files/" + images[rand_num]),
-    sex: rand_num
   )
 
   UserProfile.create(
     user_id: user.id,
     age: rand(20..40),
     height: rand(150..180),
-    weight: rand(50..80)
+    weight: rand(50..80),
+    sex: rand_num
   )
 end
 
