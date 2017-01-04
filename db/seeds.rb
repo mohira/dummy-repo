@@ -1,3 +1,6 @@
+User.destroy_all
+UserProfile.destroy_all
+
 images = ['female.png', 'male.png']
 
 10.times do |i|
@@ -9,13 +12,13 @@ images = ['female.png', 'male.png']
     password: 'password',
     name: "user#{i}",
     image: open("#{Rails.root}/test/fixtures/files/" + images[rand_num]),
-    sex: rand_num
   )
 
   UserProfile.create(
     user_id: user.id,
     age: rand(20..40),
     height: rand(150..180),
-    weight: rand(50..80)
+    weight: rand(50..80),
+    sex: rand_num
   )
 end
