@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104160631) do
+ActiveRecord::Schema.define(version: 20170105082709) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "status"
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["follower_id", "followed_id"], name: "index_likes_on_follower_id_and_followed_id", unique: true
+  end
 
   create_table "user_profiles", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -37,18 +46,7 @@ ActiveRecord::Schema.define(version: 20170104160631) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "image"
-    t.string   "invitation_token"
-    t.datetime "invitation_created_at"
-    t.datetime "invitation_sent_at"
-    t.datetime "invitation_accepted_at"
-    t.integer  "invitation_limit"
-    t.string   "invited_by_type"
-    t.integer  "invited_by_id"
-    t.integer  "invitations_count",      default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-    t.index ["invitations_count"], name: "index_users_on_invitations_count"
-    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
