@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+UserProfile.destroy_all
+
+images = ['female.png', 'male.png']
+
+10.times do |i|
+  i = i.to_s
+  rand_num = rand(0..1)
+
+  user = User.create(
+    email: "user#{i}@example.com",
+    password: 'password',
+    name: "user#{i}",
+    image: open("#{Rails.root}/test/fixtures/files/" + images[rand_num]),
+  )
+
+  UserProfile.create(
+    user_id: user.id,
+    age: rand(20..40),
+    height: rand(150..180),
+    weight: rand(50..80),
+    sex: rand_num
+  )
+end
